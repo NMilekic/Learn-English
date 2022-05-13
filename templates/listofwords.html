@@ -1,0 +1,68 @@
+{% include "header.html" %}
+
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <h1>Learning never ends, add more words</h1>
+        </br>
+
+        <form class="w-75" action="{{url_for('listofwords')}}" method="post">
+            <div class="row">
+                <div class="col-5">
+                    <input type="text" class="form-control mb-2" name="english" placeholder="Word on english">
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control mb-2" name="serbian" placeholder="Word on serbian">
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-get-started mb-2">Add</button>
+                </div>
+            </div>
+        </form>
+
+        <br/>
+        <br/>
+        <h2>You have {{ words|length }} more words to learn.</h2>
+        <h2>Scroll down to see all words for learning ↓</h2>
+
+
+
+    </div>
+
+</section><!-- End Hero -->
+
+
+<section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h3>A list of words you <span>need to learn</span></h3>
+            <br/>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ENGLISH</th>
+                    <th scope="col">SERBIAN</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for word in words: %}
+                <tr>
+                    <th scope="row">{{ word.id }}</th>
+                    <td>{{ word.english }}</td>
+                    <td>{{ word.serbian }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+{% include "header.html" %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <h1>Make it happen</h1>
+        </br>
+        <h2>Unknown word is</h2>
+
+        <form class="w-75" action="{{url_for('learn', id=word.id)}}" method="post">
+            <div class="row">
+                <div class="col-12">
+                    <label><h3><strong>{{word.english}}</strong></h3></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <input type="text" class="form-control mb-2" name="answer_english" placeholder="Write a word in English">
+                </div>
+                <div class="col-5">
+                    <input type="text" class="form-control mb-2" name="answer_serbian" placeholder="Write a word in Serbian">
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-get-started mb-2">Check</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</section><!-- End Hero -->
+
+</body>
+
+</html>

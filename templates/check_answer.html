@@ -1,0 +1,29 @@
+{% include "header.html" %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container">
+        <h3><strong>{{word.english}} ➨ {{word.serbian}}</strong></h3>
+        {% if word.english != answer[0]: %}
+            <h1>Please concentrate</h1>
+            </br>
+            <h2><b class="wrong">WRONG</b> writen word in english! You write <b class="wrong">{{ answer[0].upper() }}</b>...</h2>
+        {% else: %}
+            {% if word.serbian == answer[1]: %}
+                <h1>One step less to the top</h1>
+                </br>
+                <h2> Your answer is <b class="correct">{{ answer[1].upper() }}</b> and that is <b class="correct">CORRECT</b>!</h2>
+            {% else: %}
+                <h1>You'll do it next time</h1>
+                </br>
+                <h2> Your answer <b style="color:red">{{ answer[1].upper() }}</b> and that is <b style="color:red">WRONG!</b></h2>
+            {% endif %}
+        {% endif %}
+        <a href="/learn" class="btn-get-started scrollto">Next Word</a>
+
+    </div>
+</section><!-- End Hero -->
+
+</body>
+
+</html>
